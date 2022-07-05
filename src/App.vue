@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div>111</div>
     <router-view></router-view>
   </div>
 </template>
@@ -13,4 +12,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.title {
+  font-size: 20px;
+}
+</style>
