@@ -7,7 +7,8 @@ import ToutiaoIcon from "@/components/TouTiaoIcon.vue";
 import Vant from "vant";
 import "vant/lib/index.less";
 import "amfe-flexible";
-
+// 引入dayjs
+import "@/utils/dayjs";
 Vue.use(Vant);
 Vue.component("ToutiaoIcon", ToutiaoIcon);
 Vue.config.productionTip = false;

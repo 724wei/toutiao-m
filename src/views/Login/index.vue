@@ -1,6 +1,10 @@
 <template>
   <div class="login-container">
-    <van-nav-bar title="登录" />
+    <van-nav-bar title="登录">
+      <template #left>
+        <van-icon @click="$router.push('/my')" class="cha" name="cross" />
+      </template>
+    </van-nav-bar>
     <van-form @submit="onSubmit" ref="form">
       <van-field
         v-model="user.mobile"
@@ -111,6 +115,8 @@ export default {
       try {
         // 用户登录
         const res = await userLogin(this.user);
+        this.$store.commit("setUser", res.data.data);
+        this.$router.push({ path: "/my" });
         Toast.success("登录成功");
         console.log(res);
       } catch (e) {
@@ -133,7 +139,6 @@ export default {
       //   发送成功>>倒计时>>成功的提示
       //   发送失败>>错误的提示
       //   拿到结果>>解除禁用
-
       try {
         this.isdisable = true;
         // 发送验证码请求
@@ -152,7 +157,6 @@ export default {
   },
 };
 </script>
-
 <style scoped lang="less">
 .login-container {
   .toutiao {
@@ -165,6 +169,9 @@ export default {
     background-color: #ededed;
     font-size: 22px;
     color: #666;
+  }
+  .cha {
+    color: #ededed;
   }
 }
 </style>
